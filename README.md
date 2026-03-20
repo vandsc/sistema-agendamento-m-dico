@@ -104,19 +104,15 @@ sistema-agendamento-medico/
 
 Backend
 
-cd backend
-
-npm install
-
-npm run dev
-
+* cd backend
+* npm install
+* npm run dev
 
 
 ou:
 
 
-
-node server.js
+* node server.js
 
 
 
@@ -132,11 +128,9 @@ JWT\_SECRET=sua\_chave\_secreta
 
 Frontend
 
-cd frontend
-
-npm install
-
-npm run dev
+* cd frontend
+* npm install
+* npm run dev
 
 
 
