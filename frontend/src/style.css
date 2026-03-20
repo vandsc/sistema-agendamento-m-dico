@@ -6,41 +6,33 @@
 }
 
 body {
-  background: #f4f7fb;
+  background: #eef2f7;
   color: #1f2937;
 }
 
 a {
   text-decoration: none;
-  color: #2563eb;
-  font-weight: 600;
-}
-
-nav {
-  background: #ffffff;
-  padding: 16px 24px;
-  border-bottom: 1px solid #e5e7eb;
-  display: flex;
-  gap: 16px;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 950px;
   margin: 40px auto;
   padding: 20px;
 }
 
 .card {
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 24px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
 }
 
 .title {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 20px;
   color: #111827;
+  text-align: center;
 }
 
 .form-group {
@@ -52,11 +44,11 @@ nav {
   padding: 12px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
-  outline: none;
   font-size: 15px;
 }
 
 .input:focus {
+  outline: none;
   border-color: #2563eb;
 }
 
@@ -67,7 +59,6 @@ nav {
   padding: 12px 18px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 15px;
   font-weight: bold;
 }
 
@@ -75,28 +66,7 @@ nav {
   background: #1d4ed8;
 }
 
-.button-danger {
-  background: #dc2626;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.button-danger:hover {
-  background: #b91c1c;
-}
-
 .message {
   margin-top: 16px;
   font-weight: 600;
-}
-
-.list-item {
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 16px;
-  margin-top: 16px;
 }

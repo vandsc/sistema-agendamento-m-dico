@@ -1,16 +1,22 @@
 <template>
-  <div class="container">
-    <h2>Cadastro</h2>
+  <div class="card">
+    <h2 class="title">Cadastro</h2>
 
-    <form @submit.prevent="register">
-      <input v-model="name" placeholder="Nome" />
-      <input v-model="email" placeholder="Email" />
-      <input v-model="password" type="password" placeholder="Senha" />
+    <div class="form-group">
+      <input v-model="name" class="input" placeholder="Nome" />
+    </div>
 
-      <button type="submit">Cadastrar</button>
-    </form>
+    <div class="form-group">
+      <input v-model="email" class="input" placeholder="Email" />
+    </div>
 
-    <p>{{ message }}</p>
+    <div class="form-group">
+      <input v-model="password" class="input" type="password" placeholder="Senha" />
+    </div>
+
+    <button class="button" @click="register">Cadastrar</button>
+
+    <p class="message">{{ message }}</p>
   </div>
 </template>
 
@@ -29,18 +35,16 @@ export default {
   methods: {
     async register() {
       try {
-        const response = await api.post("/auth/register", {
+        await api.post("/auth/register", {
           name: this.name,
           email: this.email,
           password: this.password
         })
 
-        console.log(response.data)
-
         this.message = "Cadastro realizado com sucesso"
         this.$router.push("/login")
       } catch (error) {
-        console.log(error.response?.data)
+        console.log(error.response?.data || error)
         this.message =
           error.response?.data?.message ||
           error.response?.data?.error ||
@@ -50,21 +54,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.container {
-  max-width: 400px;
-  margin: auto;
-}
-
-input {
-  display: block;
-  margin-bottom: 10px;
-  width: 100%;
-  padding: 8px;
-}
-
-button {
-  padding: 10px;
-}
-</style>
