@@ -1,12 +1,14 @@
 <template>
-  <div>
+  <div class="container">
     <h2>Cadastro</h2>
 
-    <input v-model="name" placeholder="Nome" />
-    <input v-model="email" placeholder="Email" />
-    <input v-model="password" type="password" placeholder="Senha" />
+    <form @submit.prevent="register">
+      <input v-model="name" placeholder="Nome" />
+      <input v-model="email" placeholder="Email" />
+      <input v-model="password" type="password" placeholder="Senha" />
 
-    <button @click="register">Cadastrar</button>
+      <button type="submit">Cadastrar</button>
+    </form>
 
     <p>{{ message }}</p>
   </div>
@@ -27,19 +29,42 @@ export default {
   methods: {
     async register() {
       try {
-        await api.post("/auth/register", {
+        const response = await api.post("/auth/register", {
           name: this.name,
           email: this.email,
           password: this.password
         })
 
+        console.log(response.data)
+
         this.message = "Cadastro realizado com sucesso"
         this.$router.push("/login")
       } catch (error) {
-        console.error(error)
-        this.message = "Erro ao cadastrar"
+        console.log(error.response?.data)
+        this.message =
+          error.response?.data?.message ||
+          error.response?.data?.error ||
+          "Erro ao cadastrar"
       }
     }
   }
 }
 </script>
+
+<style>
+.container {
+  max-width: 400px;
+  margin: auto;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 8px;
+}
+
+button {
+  padding: 10px;
+}
+</style>
