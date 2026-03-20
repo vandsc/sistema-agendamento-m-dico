@@ -1,8 +1,7 @@
 import axios from "axios"
 
 const api = axios.create({
-  baseURL: 
-  "https://sistema-agendamento-m-dico.onrender.com/api"
+  baseURL: "https://sistema-agendamento-m-dico.onrender.com/api"
 })
 
 api.interceptors.request.use((config) => {
